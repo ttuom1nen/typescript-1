@@ -3,5 +3,10 @@ exports.__esModule = true;
 var axios_1 = require("axios");
 var url = "https://jsonplaceholder.typicode.com/todos/1";
 axios_1["default"].get(url).then(function (response) {
-    console.log(response);
+    var todo = response.data;
+    var id = todo.id, title = todo.title, completed = todo.completed;
+    logTodo(id, title, completed);
 });
+var logTodo = function (id, title, completed) {
+    console.log("\n        Todo id: " + id + "\n        Todo title: " + title + "\n        Completed?: " + completed + "\n    ");
+};
